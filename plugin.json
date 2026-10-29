@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ryu.invoices",
+  "version": "0.1.0",
+  "description": "A local invoice register for tracking what was issued, what is overdue, and what has been paid. Invoices records status and cashflow without replacing a payment processor or accounting system.",
+  "author": {
+    "name": "Ryu",
+    "url": "https://ryuhq.com"
+  },
+  "homepage": "https://github.com/amajorai/ryu-invoices",
+  "repository": "https://github.com/amajorai/ryu-invoices",
+  "keywords": [
+    "invoices",
+    "billing",
+    "cashflow",
+    "finance",
+    "accounts-receivable"
+  ],
+  "extensions": {
+    "com.ryuhq.ryu": {
+      "id": "@ryu/invoices",
+      "displayName": "Invoices"
+    }
+  }
+}
