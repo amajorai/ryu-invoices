@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "package": "invoices",
+  "scope": "partial",
+  "expectedRows": 2,
+  "selector": {
+    "spec": "e2e/invoices-workflow.spec.ts",
+    "config": "playwright.config.ts"
+  },
+  "evidenceBoundary": "Current focused Chromium suite passed all three cases with terminal exit 0 (docs/proof/test-coverage-sweep-20260924/parallel/main-merged-invoices-storage-retry-v2-20261005/run.log and run.exit); root inspected completed creation and retained-record retry screenshots. Actual App and production storage bridge callers verify exact namespaced GET/SET inputs, repeated refusal with zero writes, Retry recovery, existing-record preservation/readback, and empty-state creation. This is controlled browser bridge proof, not whole-app closure or remote host storage delivery. Payment processors, banking, tax and collection services remain external.",
+  "assertions": [
+    {
+      "row": {
+        "package": "invoices",
+        "source_file": "apps-store/invoices/ui/src/App.tsx",
+        "line": "260",
+        "component": "App",
+        "tag": "Button",
+        "events": "onClick",
+        "label_or_destination": "Retry"
+      },
+      "testTitle": "retries a refused Invoices load and creates a receivable from the empty-state action",
+      "assertionName": "Retry preserves unread storage without writes on repeated refusal, then restores editing only after a successful read.",
+      "assertionMarker": "Retry keeps editing unavailable until invoice storage is read without mutating unread records."
+    },
+    {
+      "row": {
+        "package": "invoices",
+        "source_file": "apps-store/invoices/ui/src/App.tsx",
+        "line": "432",
+        "component": "App",
+        "tag": "Button",
+        "events": "onClick",
+        "label_or_destination": "Create invoice"
+      },
+      "testTitle": "retries a refused Invoices load and creates a receivable from the empty-state action",
+      "assertionName": "The empty-state Create invoice action validates and persists a complete receivable through host storage.",
+      "assertionMarker": "The empty-state Create invoice action persists a validated receivable through host storage."
+    }
+  ]
+}
